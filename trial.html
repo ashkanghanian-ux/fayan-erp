@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>محیط آزمایشی فایان ERP | نسخهٔ نمایشی آنلاین</title>
+<meta name="description" content="محیط آزمایشی واقعی فایان ERP را آنلاین ببینید؛ با تمام دسته‌های ماژول، امکانات عملیاتی و قابلیت‌هایی که بعداً به سامانه اضافه می‌شوند.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ashkanghanian-ux.github.io/fayan-erp/trial.html">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/trial.css">
+<link rel="icon" type="image/svg+xml" href="mark.svg">
+</head>
+<body class="trial-body">
+
+<header class="trial-top">
+  <div class="trial-top-inner">
+    <a class="trial-brand" href="index.html">
+      <img src="mark.svg" alt="لوگوی فایان ERP">
+      فایان <small>ERP</small>
+    </a>
+    <span class="trial-badge"><i class="i"></i> نسخهٔ نمایشی — فقط مشاهده</span>
+    <a href="index.html" class="btn btn-ghost">بازگشت به سایت</a>
+    <a href="demo-request.html" class="btn btn-primary">درخواست دموی کامل</a>
+  </div>
+</header>
+
+<div class="trial-wrap">
+  <aside class="trial-side" id="trialSide"></aside>
+  <main class="trial-main" id="trialMain"></main>
+</div>
+
+<div class="trial-note">
+  این محیط فقط برای آشنایی با امکانات سامانه است؛ اطلاعات داخل آن نمونه است.
+  برای مشاهدهٔ نسخهٔ کامل با دادهٔ واقعی، <a href="demo-request.html">دموی آزمایشی</a> بخواهید یا
+  بخش دلخواه‌تان را از <a href="proforma.html">فهرست پیش‌فاکتور</a> انتخاب کنید.
+</div>
+
+<script>
+/* ---------- داده‌های ماژول‌ها ---------- */
+var CATS = [
+  { id:"ov", n:"۰", t:"داشبورد مدیریتی", badge:"ok", desc:"نمای زندهٔ کل کارخانه در یک نگاه؛ شاخص‌های هر واحد با چراغ وضعیت و امکان شروع اقدام اصلاحی.", feat:[
+    {t:"رصد زندهٔ شاخص‌های واحدها", d:"تحقق هر واحد در هر دوره با چراغ سبز/زرد/قرمز به‌روز می‌شود.", add:false},
+    {t:"از اپراتور تا هیئت‌مدیره", d:"یک ثبت ساده در خط، به شاخص و نمودار مدیریتی تبدیل می‌شود.", add:false},
+    {t:"گزارش‌های شمسی و خروجی اکسل", d:"همهٔ گزارش‌ها با تقویم شمسی و قابل استخراج.", add:false},
+    {t:"رصد موبایلی", d:"داشبورد روی گوشی مدیر هم کار می‌کند.", add:false}
+  ]},
+  { id:"c1", n:"۱", t:"راهبری و مدیریت", badge:"ok", desc:"شاخص‌ها، استراتژی، ریسک و اقدامات اصلاحی — قلب سامانهٔ فایان.", feat:[
+    {t:"داشبورد مدیریتی و شاخص‌ها", d:"شاخص هر واحد در هر دوره تعریف و رصد می‌شود.", add:false},
+    {t:"مدیریت استراتژی", d:"اهداف، اقدامات و سند استراتژی به‌صورت یکپارچه.", add:false},
+    {t:"اقدام اصلاحی و پیشگیرانه (CAPA)", d:"از ۵چرا و استخوان ماهی تا تصویب و بستن با مسئول و مهلت.", add:false},
+    {t:"مدیریت ریسک و طرح اضطراری", d:"ریسک‌ها و برنامه‌های کاهش ثبت و پایش می‌شوند.", add:false},
+    {t:"کارتابل و گردش کار", d:"دریافت و ارسال درخواست‌ها با کارتابل مشخص.", add:true},
+    {t:"مدیریت بودجه و برنامه", d:"بودجهٔ سالانه و پایش مصارف.", add:true}
+  ]},
+  { id:"c2", n:"۲", t:"مالی و حسابداری", badge:"soon", desc:"اتصال کامل امور مالی به تولید، انبار و فروش در یک پایگاه دادهٔ واحد.", feat:[
+    {t:"حسابداری مالی و ثبت اسناد", d:"صدور اسناد و گزارش‌های مالی استاندارد.", add:true},
+    {t:"دریافت و پرداخت / خزانه‌داری", d:"جریان نقد و مدیریت دریافتنی‌ها و پرداختنی‌ها.", add:true},
+    {t:"بهای تمام‌شده و هزینه‌یابی", d:"محاسبهٔ بهاء برای هر محصول.", add:true},
+    {t:"دارایی‌های ثابت و استهلاک", d:"شناسنامه و استهلاک دارایی‌ها.", add:true},
+    {t:"مدیریت چک و نقدینگی", d:"چک‌های دریافتی و پرداختی.", add:true},
+    {t:"فاکتور رسمی و سامانهٔ مؤدیان", d:"اتصال بهصورت سفارشی.", add:true}
+  ]},
+  { id:"c3", n:"۳", t:"تولید و کارخانه", badge:"ok", desc:"از برنامهٔ تولید تا ثبت لحظه‌ای اپراتورهای خط و پیگیری ضایعات.", feat:[
+    {t:"کنترل تولید روزانه", d:"ثبت مقدار تولید هر خط در هر شیفت.", add:false},
+    {t:"MRP، کانبان و اندازهٔ بهر", d:"تأمین مواد و جمع‌بندی نیاز هر محصول.", add:false},
+    {t:"فرمول ساخت (BOM) و درختوارهٔ مواد", d:"یک نسخهٔ مرجع برای انبار، تولید و MRP.", add:false},
+    {t:"انحراف از مصرف و ضایعات", d:"مقایسهٔ مصرف واقعی با فرمول و ثبت ضایعات.", add:false},
+    {t:"برنامه‌ریزی تولید و ظرفیت (MPS)", d:"برنامهٔ ماشین‌ها و خطوط.", add:true},
+    {t:"کارت عملیات و تایم‌شیت خط", d:"عملیات هر قطعه و زمان استاندارد.", add:true},
+    {t:"برون‌سپاری و پیمانکاران تولید", d:"ارسال کار به پیمانکاران.", add:true}
+  ]},
+  { id:"c4", n:"۴", t:"کیفیت", badge:"ok", desc:"سوابق کیفی IATF، تحلیل ریشه‌ای و تیم‌های بهبود در یک سامانه.", feat:[
+    {t:"سوابق کیفی و کنترل کیفیت IATF", d:"آرشیو سوابق و کنترل مستند.", add:false},
+    {t:"تحلیل ریشه‌ای ۵چرا / استخوان ماهی", d:"ابزار تحلیل مشکل تا ریشه.", add:false},
+    {t:"PCAT و تیم‌های بهبود", d:"تشکیل، اقدام و جمع‌بندی تیم‌ها.", add:false},
+    {t:"SPC و نمونه‌برداری آماری", d:"کنترل آماری فرایند.", add:true},
+    {t:"عدم انطباق و رسید قطعات", d:"مدیریت NC و مرجوعی.", add:true},
+    {t:"ردیابی سریال و بچ محصول", d:"ردیابی کامل هر محصول.", add:true}
+  ]},
+  { id:"c5", n:"۵", t:"نگهداری و تجهیزات", badge:"ok", desc:"شناسنامهٔ تجهیزات، تعمیرات و شاخص OEE به‌همراه توقفات.", feat:[
+    {t:"شناسنامهٔ تجهیزات و قالب‌ها", d:"تاریخچهٔ کامل هر دستگاه.", add:false},
+    {t:"تعمیرات پیشگیرانه (PM) و اصلاحی (EM)", d:"برنامهٔ PM خودکار با یادآوری.", add:false},
+    {t:"شاخص OEE و ثبت توقفات", d:"محاسبهٔ دسترس‌پذیری، کارایی و کیفیت.", add:false},
+    {t:"کالیبراسیون ابزار دقیق", d:"برنامه و سوابق کالیبراسیون.", add:true},
+    {t:"تحلیل خرابی (RCFA / MTBF)", d:"تحلیل ریشهٔ خرابی و قابلیت اطمینان.", add:true}
+  ]},
+  { id:"c6", n:"۶", t:"انبار و زنجیرهٔ تأمین", badge:"ok", desc:"گردش کالا، محدودهٔ مصرف مواد و ارتباط کامل با تولید و فروش.", feat:[
+    {t:"انبار و گردش کالا", d:"رسید، حواله و موجودی به‌روز.", add:false},
+    {t:"محدودهٔ مصرف مواد و BOM", d:"هزینهٔ مواد هر محصول محاسبه می‌شود.", add:false},
+    {t:"انبارگردانی و کارت موجودی", d:"شمارش فیزیکی و اصلاح موجودی.", add:true},
+    {t:"نقطهٔ سفارش و قیمت‌گذاری", d:"هشدار موجودی پایین.", add:true},
+    {t:"کدینگ کالا و بارکد/QR", d:"اسکن سریع کالا.", add:true},
+    {t:"مدیریت اموال", d:"اموال و دارایی‌های فیزیکی.", add:true}
+  ]},
+  { id:"c7", n:"۷", t:"خرید و تدارکات", badge:"ok", desc:"از درخواست خرید تا رسید کالا و ارزیابی تأمین‌کننده.", feat:[
+    {t:"تأمین‌کنندگان و ارزیابی پیمانکار", d:"پروفایل و امتیازدهی به تأمین‌کنندگان.", add:false},
+    {t:"درخواست خرید و استعلام بها", d:"گردش کامل تأمین.", add:true},
+    {t:"سفارش خرید و رسید کالا", d:"سفارش تا رسید در یک مسیر.", add:true},
+    {t:"قراردادها و تضامین", d:"پیگیری قراردادها.", add:true}
+  ]},
+  { id:"c8", n:"۸", t:"فروش، مشتری و CRM", badge:"ok", desc:"مشتریان، سفارشات و تعهدات تحویل — به‌همراه ابزار فروش.", feat:[
+    {t:"مشتریان و سفارشات فروش", d:"تاریخچهٔ کامل هر مشتری.", add:false},
+    {t:"گزارش تحویل و تعهدات", d:"پایش به‌موقع عمل به سفارش‌ها.", add:false},
+    {t:"پیش‌فاکتور / فاکتور / مرجوعی", d:"چرخهٔ حرفه‌ای فروش.", add:true},
+    {t:"پخش مویرگی و سفارش‌گیری موبایل", d:"فروش دوره‌ای با موبایل.", add:true},
+    {t:"سود و زیان فروش", d:"حاشیهٔ هر کالا و مشتری.", add:true}
+  ]},
+  { id:"c9", n:"۹", t:"منابع انسانی و آموزش", badge:"ok", desc:"پرسنل، مهارت‌ها، آموزش و ارزیابی عملکرد.", feat:[
+    {t:"بانک پرسنل و کارگزینی", d:"پروندهٔ پرسنل و سوابق.", add:false},
+    {t:"ماتریس مهارت و صلاحیت", d:"صلاحیت اپراتور برای هر پست.", add:false},
+    {t:"نیازهای آموزشی و آموزش موردی", d:"برنامهٔ آموزش بر پایهٔ نیاز.", add:false},
+    {t:"ارزیابی عملکرد ۳۶۰ درجه", d:"ارزیابی چندمنظوره.", add:false},
+    {t:"حضور و غیاب و تایم‌شیت", d:"کنترل ساعت ورود و خروج.", add:true},
+    {t:"حقوق و دستمزد", d:"فیش و محاسبهٔ حقوق.", add:true}
+  ]},
+  { id:"c10", n:"۱۰", t:"مستندات و اتوماسیون", badge:"ok", desc:"مدارک، فرم‌ساز و بایگانی — سامانه را با نیاز شما تطبیق می‌دهد.", feat:[
+    {t:"مدیریت مدارک و نسخه‌بندی", d:"آخرین نسخهٔ هر سند همیشه در دسترس.", add:false},
+    {t:"فرم‌ساز و طراحی فرم چاپی", d:"فرم دلخواه شما بدون برنامه‌نویسی ساخته می‌شود.", add:false},
+    {t:"بایگانی سوابق و لاگ تغییرات", d:"همهٔ تغییرات قابل پیگیری است.", add:false},
+    {t:"طراحی نما و داشبورد اختصاصی", d:"نمای اختصاصی برای هر نقش.", add:false}
+  ]}
+];
+
+/* ---------- رندر ---------- */
+var side = document.getElementById("trialSide");
+var main = document.getElementById("trialMain");
+var on = "ov";
+
+function chips(list){ return list.map(function(f){ return '<label class="chk-row"><input type="checkbox" ' + (f.add?'':'checked disabled') + '>' + f.t + '</label>'; }).join(""); }
+
+function kpis(){ return '<div class="kpi-band">'
+ + '<div class="kpi"><b class="up">۹۲٪</b><span>تحقق تولید امروز</span></div>'
+ + '<div class="kpi"><b class="wrn">۷۸٪</b><span>تحقق واحد A</span></div>'
+ + '<div class="kpi"><b class="up">۴٫۸٪</b><span>ضایعات (هدف ۵٪)</span></div>'
+ + '<div class="kpi"><b class="dn">۳</b><span>اقدام‌های معوق</span></div>'
+ + '</div>'; }
+
+var H = [];
+CATS.forEach(function(c){ H.push('<div class="trial-pano' + (c.id===on?' on':'') + '" data-p="' + c.id + '">'
+  + '<div class="pano-top"><h1>' + c.t + ' <span class="badge-' + (c.badge==='ok'?'ok':'soon') + '">' + (c.badge==='ok'?'عملیاتی':'برنامهٔ توسعه') + '</span></h1>'
+  + '<p>' + c.desc + '</p>'
+  + (c.id==='ov' ? '' : '<div class="chk-grid" style="margin-top:12px">' + chips(c.feat) + '</div>')
+  + '<div class="pact"><a class="btn btn-primary" href="proforma.html">انتخاب در پیش‌فاکتور</a><a class="btn btn-ghost" href="demo-request.html">درخواست دموی کامل</a></div>'
+  + '</div>'
+  + (c.id==='ov' ? kpis() + '<div class="t-grid">' + c.feat.map(function(f){return '<div class="t-card"><span class="tag go">عملیاتی</span><h3>' + f.t + '</h3><p>' + f.d + '</p></div>';}).join("") + '</div>'
+    : '<div class="t-grid">' + c.feat.map(function(f){return '<div class="t-card"><span class="tag ' + (f.add?'ad':'go') + '">' + (f.add?'قابل افزودن':'عملیاتی') + '</span><h3 class="' + (f.add?'add':'') + '">' + f.t + '</h3><p>' + f.d + '</p></div>';}).join("") + '</div>')
+  + '<div class="t-tip"><b>چیزی می‌خواهید که در این فهرست نیست؟</b> فایان ERP با فرم‌ساز و ماژول‌های اختصاصی قابل توسعه است — بخش موردنظرتان را در <a href="proforma.html" style="color:#4f46e5;font-weight:800">پیش‌فاکتور</a> یادداشت کنید.</div>'
+  + '</div>'; });
+
+main.innerHTML = H.join("");
+
+var S = ['<div class="t-head">دسته‌بندی ماژول‌ها</div>'];
+CATS.forEach(function(c){
+  S.push('<div class="t-item' + (c.id===on?' on':'') + '" data-p="' + c.id + '"><span class="n">' + c.n + '</span>' + c.t + '</div>');
+});
+S.push('<div class="t-cta"><a class="btn btn-primary" href="demo-request.html">درخواست دموی کامل</a><a class="btn btn-ghost" href="proforma.html">پیش‌فاکتور</a></div>');
+side.innerHTML = S.join("");
+side.querySelectorAll(".t-item").forEach(function(el){
+  el.addEventListener("click", function(){
+    on = el.dataset.p;
+    side.querySelectorAll(".t-item").forEach(function(x){ x.classList.toggle("on", x===el); });
+    main.querySelectorAll(".trial-pano").forEach(function(p){ p.classList.toggle("on", p.dataset.p===on); });
+  });
+});
+</script>
+</body>
+</html>
