@@ -127,6 +127,10 @@
 .trial-note a{color:var(--brand);font-weight:800;text-decoration:none}
 
 /* ---------- موبایل ---------- */
+.test-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:8px 18px;border-radius:999px;font:700 12px/1 'Vazirmatn',Tahoma,sans-serif;color:#fff;background:linear-gradient(120deg,#4f46e5,#0ea5e9);border:0;cursor:pointer;transition:.2s;box-shadow:0 8px 18px -10px rgba(79,70,229,.7)}
+.test-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px -10px rgba(79,70,229,.9)}
+.test-btn:disabled{opacity:.65;cursor:not-allowed;transform:none}
+.test-result{margin-top:14px;border-top:1px dashed var(--t-line);padding-top:12px;font-size:13px;font-weight:700;color:#16a34a;animation:fadeUp .2s ease;min-height:20px}
 @media (max-width:900px){
   .trial-wrap{grid-template-columns:1fr}
   .trial-side{position:static;max-height:none;display:flex;flex-wrap:wrap;gap:6px;padding:10px}
