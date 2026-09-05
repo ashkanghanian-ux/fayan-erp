@@ -86,20 +86,22 @@
 .pano-top .pact{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;position:relative;z-index:1}
 
 /* ---------- کارت‌ها ---------- */
-.t-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:14px}
-.t-card{background:var(--t-card);border:1px solid var(--t-line);border-radius:15px;padding:18px;position:relative;transition:.22s;overflow:hidden}
+.t-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.t-card{background:var(--t-card);border:1px solid var(--t-line);border-radius:15px;padding:20px 20px 22px;position:relative;transition:.22s;overflow:hidden}
 .t-card::after{content:"";position:absolute;inset-inline-end:-34px;top:-34px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.14),transparent 70%);pointer-events:none}
 .t-card:hover{transform:translateY(-4px);border-color:#c7d2fe;box-shadow:0 22px 44px -26px rgba(79,70,229,.5)}
 .trial-body.dark .t-card:hover{border-color:rgba(129,140,248,.55)}
-.t-card h3{font-size:14.5px;font-weight:800;margin-bottom:7px;display:flex;align-items:center;gap:8px}
-.t-card h3::before{content:"";width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#0d9488);flex:none;box-shadow:0 0 0 3px rgba(34,197,94,.15)}
-.t-card h3.add::before{background:linear-gradient(135deg,#f59e0b,#f97316);box-shadow:0 0 0 3px rgba(245,158,11,.15)}
-.t-card p{color:var(--t-mut);font-size:13px;line-height:2}
-.t-card .tag{position:absolute;top:14px;left:14px;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:999px;z-index:2}
+.tc-head{display:flex;align-items:center;gap:10px;justify-content:space-between;margin-bottom:9px}
+.tc-head h3{font-size:14.5px;font-weight:800;margin:0;display:flex;align-items:center;gap:8px;line-height:1.9}
+.tc-head h3::before{content:"";width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#0d9488);flex:none;box-shadow:0 0 0 3px rgba(34,197,94,.15)}
+.tc-head h3.add::before{background:linear-gradient(135deg,#f59e0b,#f97316);box-shadow:0 0 0 3px rgba(245,158,11,.15)}
+.t-card p{color:var(--t-mut);font-size:13px;line-height:2.05}
+.t-card .tag{flex:none;font-size:10.5px;font-weight:800;padding:4px 12px;border-radius:999px;white-space:nowrap}
 .t-card .tag.go{background:#dcfce7;color:#15803d}
 .t-card .tag.ad{background:#fef3c7;color:#b45309}
 .trial-body.dark .t-card .tag.go{background:rgba(34,197,94,.15);color:#6ee7b7}
 .trial-body.dark .t-card .tag.ad{background:rgba(245,158,11,.15);color:#fcd34d}
+.chk-grid{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 16px}
 
 /* ---------- KPI ---------- */
 .kpi-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;margin-bottom:16px}
