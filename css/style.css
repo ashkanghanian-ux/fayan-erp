@@ -304,3 +304,13 @@ label.chk-row:has(input:checked){background:#eef2ff;border-color:var(--brand);co
 .btn[disabled]{opacity:.6;pointer-events:none}
 .spin{display:inline-block;width:14px;height:14px;border:2px solid #fff;border-top-color:transparent;border-radius:50%;animation:rot .7s linear infinite;vertical-align:-2px;margin-left:6px}
 @keyframes rot{to{transform:rotate(360deg)}}
+
+/* ---------- ABOUT US ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}
+.team-card{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);padding:24px;position:relative;overflow:hidden;transition:.22s}
+.team-card::after{content:"";position:absolute;inset-inline-end:-30px;top:-30px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.14),transparent 70%);pointer-events:none}
+.team-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#c7d2fe}
+.team-ico{width:52px;height:52px;border-radius:15px;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:24px;margin-bottom:16px;box-shadow:0 12px 24px -12px rgba(79,70,229,.7)}
+.team-card h3{font-size:17px;font-weight:900;margin-bottom:9px}
+.team-card p{color:var(--muted);font-size:13.8px;line-height:2.1}
+
