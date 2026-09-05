@@ -431,7 +431,7 @@ function kpis(){ return '<div class="kpi-band">'
  + '</div>'; }
 
 function featCard(f, add){
-  return '<div class="t-card"><span class="tag ' + (add?'ad':'go') + '">' + (add?'قابل افزودن':'عملیاتی') + '</span><h3 class="' + (add?'add':'') + '">' + f.t + '</h3><p>' + f.d + '</p></div>';
+  return '<div class="t-card"><div class="tc-head"><h3 class="' + (add?'add':'') + '">' + f.t + '</h3><span class="tag ' + (add?'ad':'go') + '">' + (add?'قابل افزودن':'عملیاتی') + '</span></div><p>' + f.d + '</p></div>';
 }
 
 var H = [];
@@ -474,6 +474,13 @@ side.querySelectorAll(".t-item").forEach(function(el){
     main.querySelectorAll(".trial-pano").forEach(function(p){ p.classList.toggle("on", p.dataset.p===on); });
   });
 });
+(function(){
+  var h = (location.hash || "").replace("#", "");
+  if(!h) return;
+  var el = side.querySelector('.t-item[data-p="' + h + '"]');
+  if(el) el.click();
+  try { if(history.replaceState) history.replaceState(null, "", location.pathname); } catch(e){}
+})();
 
 /* ---------- دموی زندهٔ اداری ---------- */
 (function(){
