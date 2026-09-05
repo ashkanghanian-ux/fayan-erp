@@ -12,6 +12,7 @@
 <link rel="icon" type="image/svg+xml" href="mark.svg">
 </head>
 <body class="trial-body">
+<div class="trial-orb o1"></div><div class="trial-orb o2"></div><div class="trial-orb o3"></div>
 
 <header class="trial-top">
   <div class="trial-top-inner">
@@ -19,6 +20,7 @@
       <img src="mark.svg" alt="لوگوی فایان ERP">
       فایان <small>ERP</small>
     </a>
+    <button class="theme-btn" id="themeBtn" title="تغییر تم (روشن/تیره)">🌙</button>
     <span class="trial-badge"><i class="i"></i> نسخهٔ نمایشی — فقط مشاهده</span>
     <a href="index.html" class="btn btn-ghost">بازگشت به سایت</a>
     <a href="demo-request.html" class="btn btn-primary">درخواست دموی کامل</a>
@@ -161,6 +163,7 @@ var OFFICE_BODY =
   + '<div class="t-tip"><b>این برنامه واقعی است، نه شبیه‌سازی؛</b> خودتان با حساب نمونه واردش شوید و نامه‌ای ثبت یا درخواست مرخصی بدهید. برای استقرار در سازمان‌تان <a href="demo-request.html" style="color:#4f46e5;font-weight:800">دموی اختصاصی</a> یا <a href="proforma.html" style="color:#4f46e5;font-weight:800">پیش‌فاکتور</a> بخواهید.</div>';
 
 /* ---------- رندر ---------- */
+var ICONS = { ov:"📊", c1:"🧭", c2:"💳", c3:"🏭", c4:"✅", c5:"🔧", c6:"📦", c7:"🛒", c8:"🤝", c9:"👥", c10:"📂", office:"🏢" };
 var side = document.getElementById("trialSide");
 var main = document.getElementById("trialMain");
 var on = "ov";
@@ -168,16 +171,16 @@ var on = "ov";
 function chips(list){ return list.map(function(f){ return '<label class="chk-row"><input type="checkbox" ' + (f.add?'':'checked disabled') + '>' + f.t + '</label>'; }).join(""); }
 
 function kpis(){ return '<div class="kpi-band">'
- + '<div class="kpi"><b class="up">۹۲٪</b><span>تحقق تولید امروز</span></div>'
- + '<div class="kpi"><b class="wrn">۷۸٪</b><span>تحقق واحد A</span></div>'
- + '<div class="kpi"><b class="up">۴٫۸٪</b><span>ضایعات (هدف ۵٪)</span></div>'
- + '<div class="kpi"><b class="dn">۳</b><span>اقدام‌های معوق</span></div>'
+ + '<div class="kpi"><b class="up">۹۲٪</b><span>📈 تحقق تولید امروز</span></div>'
+ + '<div class="kpi"><b class="wrn">۷۸٪</b><span>🔆 تحقق واحد A</span></div>'
+ + '<div class="kpi"><b class="up">۴٫۸٪</b><span>🎯 ضایعات (هدف ۵٪)</span></div>'
+ + '<div class="kpi"><b class="dn">۳</b><span>⚠️ اقدام‌های معوق</span></div>'
  + '</div>'; }
 
 var H = [];
 CATS.forEach(function(c){
   var head = '<div class="trial-pano' + (c.id===on?' on':'') + '" data-p="' + c.id + '">'
-  + '<div class="pano-top"><h1>' + c.t + ' <span class="badge-' + (c.badge==='ok'?'ok':'soon') + '">' + (c.badge==='ok'?'عملیاتی':'برنامهٔ توسعه') + '</span></h1>'
+  + '<div class="pano-top"><h1><span class="pico">' + (ICONS[c.id] || c.n) + '</span>' + c.t + ' <span class="badge-' + (c.badge==='ok'?'ok':'soon') + '">' + (c.badge==='ok'?'عملیاتی':'برنامهٔ توسعه') + '</span></h1>'
   + '<p>' + c.desc + '</p>'
   + '<div class="pact"><a class="btn btn-primary" href="proforma.html">انتخاب در پیش‌فاکتور</a><a class="btn btn-ghost" href="demo-request.html">درخواست دموی کامل</a></div>'
   + '</div>';
@@ -201,7 +204,7 @@ main.innerHTML = H.join("");
 
 var S = ['<div class="t-head">دسته‌بندی ماژول‌ها</div>'];
 CATS.forEach(function(c){
-  S.push('<div class="t-item' + (c.id===on?' on':'') + '" data-p="' + c.id + '"><span class="n">' + c.n + '</span>' + c.t + '</div>');
+  S.push('<div class="t-item' + (c.id===on?' on':'') + '" data-p="' + c.id + '"><span class="n">' + (ICONS[c.id] || c.n) + '</span>' + c.t + '</div>');
 });
 S.push('<div class="t-cta"><a class="btn btn-primary" href="demo-request.html">درخواست دموی کامل</a><a class="btn btn-ghost" href="proforma.html">پیش‌فاکتور</a></div>');
 side.innerHTML = S.join("");
@@ -243,6 +246,23 @@ side.querySelectorAll(".t-item").forEach(function(el){
       show(offline);
     }
   }
+})();
+
+/* ---------- تم روشن/تیره ---------- */
+(function(){
+  var btn = document.getElementById("themeBtn");
+  function apply(t){
+    document.body.classList.toggle("dark", t === "dark");
+    btn.textContent = (t === "dark") ? "☀️" : "🌙";
+  }
+  var saved = "light";
+  try { saved = localStorage.getItem("fayanTheme") || "light"; } catch(e){}
+  apply(saved);
+  btn.addEventListener("click", function(){
+    var next = document.body.classList.contains("dark") ? "light" : "dark";
+    try { localStorage.setItem("fayanTheme", next); } catch(e){}
+    apply(next);
+  });
 })();
 </script>
 </body>
