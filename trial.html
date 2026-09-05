@@ -119,8 +119,46 @@ var CATS = [
     {t:"فرم‌ساز و طراحی فرم چاپی", d:"فرم دلخواه شما بدون برنامه‌نویسی ساخته می‌شود.", add:false},
     {t:"بایگانی سوابق و لاگ تغییرات", d:"همهٔ تغییرات قابل پیگیری است.", add:false},
     {t:"طراحی نما و داشبورد اختصاصی", d:"نمای اختصاصی برای هر نقش.", add:false}
-  ]}
+  ]},
+  { id:"office", n:"۱۱", t:"اتوماسیون اداری", badge:"ok", desc:"برنامهٔ اداری واقعی فایان: نامه‌نگاری (ورودی/ارسالی/پیش‌نویس)، مرخصی و ماموریت، ترک محل (خروج)، امضای آنلاین، پیام‌ها، جستجوی سراسری، اسناد خارجی و پنل مدیریت. همان برنامه‌ای که مستقیماً در کارخانه استفاده می‌شود — همین‌جا وارد شوید تا محیطش را ببینید.", feat:[]}
 ];
+
+var OFFICE_CARDS = [
+  {t:"نامه‌های ورودی/ارسالی و پیش‌نویس", d:"شماره‌اندیکاتور خودکار، اولویت، محرمانگی و گردش کامل نامه."},
+  {t:"نامهٔ جدید با چاپ رسمی", d:"سربرگ، امضای دیجیتال و پیوست؛ خروجی چاپ‌پذیر استاندارد."},
+  {t:"درخواست مرخصی و ماموریت", d:"ثبت، تأیید سلسله‌مراتب مدیریت و تاریخچهٔ کامل."},
+  {t:"درخواست خروج (ترک محل)", d:"تأیید سرپرست و مدیر کارخانه و اجازهٔ خروج از گیت."},
+  {t:"امضای آنلاین", d:"طراحی و ثبت امضا برای تصویب نامه‌ها."},
+  {t:"پیام‌ها و اعلان‌ها", d:"ارسال داخلی و پیگیری خوانده/نخوانده."},
+  {t:"جستجوی سراسری", d:"جستجو در نامه‌ها، کاربران و شماره‌اندیکاتورها."},
+  {t:"اسناد خارجی و پنل مدیریت", d:"ورود اسناد خارجی و مدیریت کاربران، واحدها و دسترسی‌ها."}
+];
+
+var OFFICE_BODY =
+  '<div class="off-label">نمای زندهٔ برنامهٔ اداری (واقعی)</div>'
+  + '<div id="offLive" class="t-card" style="display:none;padding:0;overflow:hidden">'
+  +   '<div class="demo-frame" style="max-width:100%;margin:0">'
+  +     '<div class="demo-bar"><i></i><i></i><i></i><span class="demo-url" id="offUrl">http://localhost:5401</span>'
+  +     '<a class="btn btn-primary btn-sm" id="offOpen" href="#" target="_blank" rel="noopener">باز کردن در تب جدید</a></div>'
+  +     '<iframe class="off-iframe" id="offFrame" src="" title="اتوماسیون اداری فایان"></iframe>'
+  +   '</div>'
+  +   '<div class="off-cred">نام کاربری و رمز نمونه: <code>ADMIN001 / admin123</code> (مدیر سیستم) و <code>SEC001 / sec123</code> (نگهبانی). ده‌ها نامه، مرخصی و خروجِ نمونه با دادهٔ نمایشی داخل دیتابیس آماده‌اند.</div>'
+  + '</div>'
+  + '<div id="offOffline" class="du-card" style="display:none">'
+  +   '<strong>سرور دموی اداری روشن نیست</strong>'
+  +   '<p>برای دیدنش، اسکریپت <code>office\\run_office.bat</code> را از پوشهٔ سامانه اجرا کنید تا روی پورت 5401 بالا بیاید؛ یا دموی حضوری درخواست کنید.</p>'
+  +   '<div class="price-btn-row"><a class="btn btn-primary" href="demo-request.html">درخواست دمو</a></div>'
+  + '</div>'
+  + '<div id="offPublic" class="du-card" style="display:none">'
+  +   '<strong>دموی اداری در نسخهٔ عمومی سایت</strong>'
+  +   '<p>برنامهٔ اداری با ورود حقیقی (نامه، مرخصی، خروج، امضا و پنل مدیریت) در نسخهٔ حضوری یا با درخواست، نمایش داده می‌شود.</p>'
+  +   '<div class="price-btn-row"><a class="btn btn-primary" href="demo-request.html">درخواست دموی حضوری</a><a class="btn btn-ghost" href="proforma.html">پیش‌فاکتور</a></div>'
+  + '</div>'
+  + '<div class="off-label">امکانات برنامهٔ اداری</div>'
+  + '<div class="t-grid">'
+  +   OFFICE_CARDS.map(function(f){ return '<div class="t-card"><span class="tag go">عملیاتی</span><h3>' + f.t + '</h3><p>' + f.d + '</p></div>'; }).join("")
+  + '</div>'
+  + '<div class="t-tip"><b>این برنامه واقعی است، نه شبیه‌سازی؛</b> خودتان با حساب نمونه واردش شوید و نامه‌ای ثبت یا درخواست مرخصی بدهید. برای استقرار در سازمان‌تان <a href="demo-request.html" style="color:#4f46e5;font-weight:800">دموی اختصاصی</a> یا <a href="proforma.html" style="color:#4f46e5;font-weight:800">پیش‌فاکتور</a> بخواهید.</div>';
 
 /* ---------- رندر ---------- */
 var side = document.getElementById("trialSide");
@@ -137,16 +175,27 @@ function kpis(){ return '<div class="kpi-band">'
  + '</div>'; }
 
 var H = [];
-CATS.forEach(function(c){ H.push('<div class="trial-pano' + (c.id===on?' on':'') + '" data-p="' + c.id + '">'
+CATS.forEach(function(c){
+  var head = '<div class="trial-pano' + (c.id===on?' on':'') + '" data-p="' + c.id + '">'
   + '<div class="pano-top"><h1>' + c.t + ' <span class="badge-' + (c.badge==='ok'?'ok':'soon') + '">' + (c.badge==='ok'?'عملیاتی':'برنامهٔ توسعه') + '</span></h1>'
   + '<p>' + c.desc + '</p>'
-  + (c.id==='ov' ? '' : '<div class="chk-grid" style="margin-top:12px">' + chips(c.feat) + '</div>')
   + '<div class="pact"><a class="btn btn-primary" href="proforma.html">انتخاب در پیش‌فاکتور</a><a class="btn btn-ghost" href="demo-request.html">درخواست دموی کامل</a></div>'
-  + '</div>'
-  + (c.id==='ov' ? kpis() + '<div class="t-grid">' + c.feat.map(function(f){return '<div class="t-card"><span class="tag go">عملیاتی</span><h3>' + f.t + '</h3><p>' + f.d + '</p></div>';}).join("") + '</div>'
-    : '<div class="t-grid">' + c.feat.map(function(f){return '<div class="t-card"><span class="tag ' + (f.add?'ad':'go') + '">' + (f.add?'قابل افزودن':'عملیاتی') + '</span><h3 class="' + (f.add?'add':'') + '">' + f.t + '</h3><p>' + f.d + '</p></div>';}).join("") + '</div>')
-  + '<div class="t-tip"><b>چیزی می‌خواهید که در این فهرست نیست؟</b> فایان ERP با فرم‌ساز و ماژول‌های اختصاصی قابل توسعه است — بخش موردنظرتان را در <a href="proforma.html" style="color:#4f46e5;font-weight:800">پیش‌فاکتور</a> یادداشت کنید.</div>'
-  + '</div>'; });
+  + '</div>';
+
+  if(c.id === 'office'){
+    H.push(head + OFFICE_BODY + '</div>');
+  } else if(c.id === 'ov'){
+    H.push(head + kpis() + '<div class="t-grid">' + c.feat.map(function(f){return '<div class="t-card"><span class="tag go">عملیاتی</span><h3>' + f.t + '</h3><p>' + f.d + '</p></div>';}).join("") + '</div>'
+    + '<div class="t-tip"><b>چیزی می‌خواهید که در این فهرست نیست؟</b> فایان ERP با فرم‌ساز و ماژول‌های اختصاصی قابل توسعه است — بخش موردنظرتان را در <a href="proforma.html" style="color:#4f46e5;font-weight:800">پیش‌فاکتور</a> یادداشت کنید.</div>'
+    + '</div>');
+  } else {
+    H.push(head
+    + '<div class="chk-grid" style="margin-top:12px">' + chips(c.feat) + '</div>'
+    + '<div class="t-grid">' + c.feat.map(function(f){return '<div class="t-card"><span class="tag ' + (f.add?'ad':'go') + '">' + (f.add?'قابل افزودن':'عملیاتی') + '</span><h3 class="' + (f.add?'add':'') + '">' + f.t + '</h3><p>' + f.d + '</p></div>';}).join("") + '</div>'
+    + '<div class="t-tip"><b>چیزی می‌خواهید که در این فهرست نیست؟</b> فایان ERP با فرم‌ساز و ماژول‌های اختصاصی قابل توسعه است — بخش موردنظرتان را در <a href="proforma.html" style="color:#4f46e5;font-weight:800">پیش‌فاکتور</a> یادداشت کنید.</div>'
+    + '</div>');
+  }
+});
 
 main.innerHTML = H.join("");
 
@@ -163,6 +212,38 @@ side.querySelectorAll(".t-item").forEach(function(el){
     main.querySelectorAll(".trial-pano").forEach(function(p){ p.classList.toggle("on", p.dataset.p===on); });
   });
 });
+
+/* ---------- دموی زندهٔ اداری ---------- */
+(function(){
+  var live = document.getElementById("offLive");
+  var offline = document.getElementById("offOffline");
+  var pub = document.getElementById("offPublic");
+  function show(el){ el.style.display = "block"; }
+
+  var proto = location.protocol;
+  if(proto === "https:"){ show(pub); return; }   // نسخهٔ عمومی سایت
+
+  var host = location.hostname || "127.0.0.1";
+  var base = (proto === "file:" ? "http://127.0.0.1:5401" : proto + "//" + host + ":5401");
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", base + "/login", true);
+    xhr.onload = function(){ okFlag = true; boot(true); };
+    xhr.onerror = function(){ boot(false); };
+    xhr.send();
+  } catch(e){ boot(false); }
+
+  function boot(ok){
+    if(ok){
+      document.getElementById("offFrame").src = base + "/login";
+      document.getElementById("offOpen").href = base + "/login";
+      document.getElementById("offUrl").textContent = base;
+      show(live);
+    } else {
+      show(offline);
+    }
+  }
+})();
 </script>
 </body>
 </html>
