@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>درخواست پیش‌فاکتور فایان ERP</title>
+<meta name="description" content="ماژول‌های موردنیازتان را از فایان ERP انتخاب کنید تا پیش‌فاکتور اختصاصی برایتان صادر شود.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ashkanghanian-ux.github.io/fayan-erp/proforma.html">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/svg+xml" href="mark.svg">
+</head>
+<body>
+
+<header class="form-page-head">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="mark.svg" class="brand-logo" alt="لوگوی فایان ERP">
+      <span class="brand-name">فایان</span><span class="brand-suf">ERP</span>
+    </a>
+    <a class="back" href="index.html">← بازگشت به سایت</a>
+  </div>
+</header>
+
+<div class="container form-wrap">
+  <div class="form-card">
+    <h1>درخواست پیش‌فاکتور</h1>
+    <p class="form-lead">بخش‌هایی از فایان ERP را که می‌خواهید انتخاب کنید (ماژول‌های عملیاتی و برنامهٔ توسعهٔ هر دو قابل انتخاب‌اند). با ثبت این فرم، درخواست به کارتابل ما می‌رسد و پیش‌فاکتور اختصاصی بر اساس انتخاب شما صادر و برایتان ارسال می‌شود.</p>
+
+    <form id="pfForm" novalidate>
+      <div class="frm-group">
+        <label for="first">نام</label>
+        <input class="frm-in" id="first" name="نام" type="text" placeholder="مثلاً محمد" required>
+        <span class="frm-hint" data-for="first">نام را وارد کنید.</span>
+      </div>
+
+      <div class="frm-group">
+        <label for="last">نام خانوادگی</label>
+        <input class="frm-in" id="last" name="نام خانوادگی" type="text" placeholder="مثلاً احمدی" required>
+        <span class="frm-hint" data-for="last">نام خانوادگی را وارد کنید.</span>
+      </div>
+
+      <div class="frm-group">
+        <label for="phone">شماره تماس</label>
+        <input class="frm-in" id="phone" name="شماره تماس" type="tel" dir="ltr" placeholder="09121234567" inputmode="tel" required>
+        <span class="frm-hint" data-for="phone">شماره موبایل معتبر وارد کنید (مثلاً 09121234567).</span>
+      </div>
+
+      <div class="frm-group">
+        <label for="email">ایمیل</label>
+        <input class="frm-in" id="email" name="ایمیل" type="email" dir="ltr" placeholder="you@example.com" inputmode="email" required>
+        <span class="frm-hint" data-for="email">ایمیل معتبر وارد کنید (پیش‌فاکتور به این ایمیل ارسال می‌شود).</span>
+      </div>
+
+      <div class="frm-group">
+        <label for="org">نام سازمان / شرکت <small>(اختیاری)</small></label>
+        <input class="frm-in" id="org" name="سازمان" type="text" placeholder="نام مجموعهٔ شما">
+      </div>
+
+      <div class="frm-group">
+        <label>ماژول‌های موردنظر (<span id="selCount">۰</span> انتخاب‌شده)</label>
+        <div id="mods"></div>
+      </div>
+
+      <div class="frm-group">
+        <label for="note">توضیح تکمیلی <small>(اختیاری)</small></label>
+        <input class="frm-in" id="note" name="توضیح" type="text" placeholder="نکته، تعداد پرسنل یا نیاز خاص شما">
+      </div>
+
+      <button class="btn btn-primary btn-block" type="submit" id="sb">ثبت درخواست پیش‌فاکتور</button>
+      <div class="form-err" id="errBox">
+        ارسال با خطا روبه‌رو شد. لطفاً درخواست‌تان را از طریق ایمیل
+        <b style="direction:ltr">ashkan.ghanian@yahoo.com</b> یا تماس <b>۰۹۱۲ ۵۳۲ ۱۲۷۱</b> ارسال کنید.
+      </div>
+    </form>
+
+    <div class="form-ok" id="okBox">
+      <div class="big">✓</div>
+      <h2>درخواست پیش‌فاکتور ثبت شد.</h2>
+      <p>انتخاب شما به کارتابل ما رسید و پس از بررسی، پیش‌فاکتور اختصاصی به ایمیل شما ارسال می‌شود.<br>
+      اگر عجله دارید: <b>۰۹۱۲ ۵۳۲ ۱۲۷۱</b> — <b style="direction:ltr">ashkan.ghanian@yahoo.com</b></p>
+      <a class="btn btn-primary" href="index.html">بازگشت به سایت</a>
+    </div>
+
+    <div class="contact-rt">
+      <div><b>تماس مستقیم</b><a href="tel:+989125321271">۰۹۱۲ ۵۳۲ ۱۲۷۱</a></div>
+      <div><b>ایمیل</b><a href="mailto:ashkan.ghanian@yahoo.com">ashkan.ghanian@yahoo.com</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- فهرست ماژول‌ها ---------- */
+var MODS = [
+  { t:"راهبری و مدیریت", m:["داشبورد مدیریتی و شاخص‌ها","مدیریت استراتژی","مدیریت ریسک و طرح اضطراری","اقدام اصلاحی و پیشگیرانه (CAPA)","مدیریت بودجه و برنامه","کارتابل و گردش کار","گزارش‌گیری و استخراج اکسل"] },
+  { t:"مالی و حسابداری", m:["حسابداری مالی و ثبت اسناد","دریافت و پرداخت / خزانه‌داری","بهای تمام‌شده و هزینه‌یابی","دارایی‌های ثابت و استهلاک","مدیریت چک و نقدینگی","تسویه و تسعیر ارز","فاکتور رسمی و سامانهٔ مؤدیان"] },
+  { t:"تولید و کارخانه", m:["کنترل تولید روزانه","MRP، کانبان و اندازهٔ بهر","فرمول ساخت (BOM) و درختوارهٔ مواد","انحراف از مصرف و ضایعات","برنامه‌ریزی تولید و ظرفیت (MPS)","کنترل ظرفیت ایستگاه‌ها","کارت عملیات و تایم‌شیت خط","سفارش تولید (MTO/MTS)","برون‌سپاری و پیمانکاران تولید"] },
+  { t:"کیفیت", m:["سوابق کیفی و کنترل کیفیت IATF","تحلیل ریشه‌ای ۵چرا / استخوان ماهی","PCAT و تیم‌های بهبود","QC دریافت / فرآیند / نهایی","SPC و نمونه‌برداری آماری","عدم انطباق و رسید قطعات","ممیزی و مغایرت‌ها (IATF/ISO)","ردیابی سریال و بچ محصول"] },
+  { t:"نگهداری و تجهیزات", m:["شناسنامهٔ تجهیزات و قالب‌ها","تعمیرات پیشگیرانه (PM) و اصلاحی (EM)","شاخص OEE و ثبت توقفات","کالیبراسیون ابزار دقیق","تحلیل خرابی (RCFA / MTBF)","قطعات یدکی مصرفی"] },
+  { t:"انبار و زنجیرهٔ تأمین", m:["انبار و گردش کالا","محدودهٔ مصرف مواد و BOM","انبارگردانی و کارت موجودی","نقطهٔ سفارش و قیمت‌گذاری","کدینگ کالا و بارکد/QR","مدیریت اموال","حمل‌ونقل و لجستیک"] },
+  { t:"خرید و تدارکات", m:["تأمین‌کنندگان و ارزیابی پیمانکار","درخواست خرید و استعلام بها","سفارش خرید و رسید کالا","قراردادها و تضامین","واردات و سفارشات خارجی"] },
+  { t:"فروش، مشتری و CRM", m:["مشتریان و سفارشات فروش","گزارش تحویل و تعهدات","پیش‌فاکتور / فاکتور / مرجوعی","قیمت‌گذاری و تخفیف","پخش مویرگی و سفارش‌گیری موبایل","سود و زیان فروش"] },
+  { t:"منابع انسانی و آموزش", m:["بانک پرسنل و کارگزینی","ماتریس مهارت و صلاحیت","نیازهای آموزشی و آموزش موردی","ارزیابی عملکرد ۳۶۰ درجه","حضور و غیاب و تایم‌شیت","حقوق و دستمزد","ابلاغ و نامه‌های داخلی"] },
+  { t:"مستندات و اتوماسیون", m:["مدیریت مدارک و نسخه‌بندی","فرم‌ساز و طراحی فرم چاپی","بایگانی سوابق و لاگ تغییرات","طراحی نما و داشبورد اختصاصی"] }
+];
+
+var box = document.getElementById("mods");
+var HTML = [];
+MODS.forEach(function(g){
+  HTML.push('<div class="cat-grp"><div class="cat-grp-title">' + g.t + '</div><div class="chk-grid">');
+  g.m.forEach(function(m){
+    HTML.push('<label class="chk-row"><input type="checkbox" name="module" value="' + m + '">' + m + '</label>');
+  });
+  HTML.push('</div></div>');
+});
+box.innerHTML = HTML.join("");
+
+/* ---------- شمارنده ---------- */
+var cnt = document.getElementById("selCount");
+box.addEventListener("change", function(){
+  cnt.textContent = box.querySelectorAll('input[name="module"]:checked').length;
+});
+
+/* ---------- ارسال ---------- */
+(function(){
+  var form = document.getElementById("pfForm");
+  var btn = document.getElementById("sb");
+  var ok = document.getElementById("okBox");
+  var err = document.getElementById("errBox");
+
+  function mark(elm, bad){
+    elm.classList.toggle("err", bad);
+    elm.closest(".frm-group").querySelector(".frm-hint").classList.toggle("show", bad);
+  }
+
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var good = true;
+    var f = form.first.value.trim(), l = form.last.value.trim();
+    var p = form.phone.value.replace(/[^\d]/g,""), e = form.email.value.trim();
+    if(!f){ mark(form.first,true); good=false; } else mark(form.first,false);
+    if(!l){ mark(form.last,true); good=false; } else mark(form.last,false);
+    if(!(p.length===10 || p.length===11)){ mark(form.phone,true); good=false; } else mark(form.phone,false);
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){ mark(form.email,true); good=false; } else mark(form.email,false);
+    if(!good) return;
+
+    var sel = box.querySelectorAll('input[name="module"]:checked');
+    var d = new FormData(form);
+    if(sel.length === 0){ alert("حداقل یک ماژول انتخاب کنید."); return; }
+    var ms = [];
+    MODS.forEach(function(g){ g.m.forEach(function(m){
+      for(var i=0;i<sel.length;i++){ if(sel[i].value===m) ms.push("- " + g.t + ": " + m);
+      }
+    }); });
+    d.delete("module");
+    d.append("ماژول‌های انتخابی", ms.filter(function(v,i,a){return a.indexOf(v)===i;}).join("\n"));
+    d.append("_subject", "درخواست پیش‌فاکتور — فایان ERP");
+    d.append("_template", "table");
+    d.append("_captcha", "false");
+    d.append("_honey", "");
+    d.append("_replyto", form.email.value);
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spin"></span>در حال ارسال…';
+    fetch("https://formsubmit.co/ajax/ashkan.ghanian@yahoo.com", { method:"POST", body:d })
+      .then(function(r){
+        btn.disabled = false; btn.textContent = "ثبت درخواست پیش‌فاکتور";
+        if(r.ok){ form.style.display = "none"; ok.style.display = "block"; }
+        else{ err.classList.add("show"); }
+      })
+      .catch(function(){ btn.disabled = false; btn.textContent = "ثبت درخواست پیش‌فاکتور"; err.classList.add("show"); });
+  });
+})();
+</script>
+</body>
+</html>
