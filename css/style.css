@@ -17,9 +17,15 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Vazirmatn',Tahoma,sans-serif;background-color:var(--bg);
-  background-image:url("../assets/factory-top.svg");background-size:840px;background-attachment:fixed;
-  color:var(--ink);line-height:1.8}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;color:var(--ink);line-height:1.8;
+  background-color:var(--bg);
+  background-image:radial-gradient(1000px 520px at 92% -6%,rgba(79,70,229,.12),transparent 60%),
+                   radial-gradient(820px 480px at 2% 28%,rgba(6,182,212,.12),transparent 60%),
+                   url("../assets/factory-top.svg");
+  background-size:auto,auto,840px;
+  background-repeat:repeat,repeat,repeat;
+  background-attachment:scroll,scroll,scroll;
+  background-position:0 0,0 0,0 0}
 a{text-decoration:none;color:inherit}
 .container{max-width:1180px;margin:0 auto;padding:0 22px}
 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -52,6 +58,13 @@ a{text-decoration:none;color:inherit}
 .cat-test-band .btn{position:relative}
 .cat-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
 @media (max-width:900px){.cat-list,.cat-feats,.cat-cols{grid-template-columns:1fr}}
+
+/* ---------- تیزر ماژول‌ها در صفحهٔ اصلی ---------- */
+.modules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:12px;margin-top:26px}
+.modules-grid a{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-weight:700;font-size:14px;transition:.22s;box-shadow:var(--shadow)}
+.modules-grid a:hover{transform:translateY(-3px);border-color:#c7d2fe}
+.modules-grid .mi{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:17px;background:var(--grad-soft);border:1px solid var(--line);flex:none}
+.center-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
 
 /* ---------- NAV ---------- */
 .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.82);border-bottom:1px solid var(--line)}
@@ -302,6 +315,8 @@ a{text-decoration:none;color:inherit}
 /* ---------- FORMS / SUB-PAGES ---------- */
 .form-page-head{border-bottom:1px solid var(--line);background:#fff;position:relative;overflow:hidden}
 .form-page-head::after{content:"";position:absolute;inset-inline-start:-40px;bottom:-34px;width:340px;height:120px;background:url("../assets/factory-side.svg") no-repeat bottom left/cover;opacity:.2;pointer-events:none}
+.form-page-head .page-art{position:absolute;inset-inline-start:6px;bottom:-48px;width:min(280px,42%);opacity:.22;pointer-events:none}
+body.dark .form-page-head .page-art{opacity:.1}
 body.dark .form-page-head::after{opacity:.1}
 .form-page-head .nav-inner{justify-content:space-between}
 .form-page-head .back{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;padding:8px 14px;border:1.5px solid var(--line);border-radius:10px;transition:.2s}
