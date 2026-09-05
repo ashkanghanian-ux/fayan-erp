@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>محیط آزمایشی فایان ERP | نسخهٔ نمایشی آنلاین ماژول‌ها</title>
-<meta name="description" content="محیط آزمایشی آنلاین فایان ERP: تمام ماژول‌ها را ببینید، با دادهٔ نمونه تست کنید و ببینید سامانه چطور با هر شرکت و صنعتی خودش را وفق می‌دهد. بدون قیمت و بدون نیاز به نصب.">
-<meta name="keywords" content="محیط آزمایشی ERP, دموی انلاین ERP, نرم افزار ERP رایگان, تست ERP صنعتی, ماژول های ERP, داشبورد مدیریتی, سامانه ERP">
+<title>محیط آزمایشی فایان ERP | شبیه‌ساز تعاملی ماژول‌ها</title>
+<meta name="description" content="محیط آزمایشی تعاملی فایان ERP: دادهٔ خودتان را وارد کنید و نتیجهٔ واقعی را ببینید — تحقق تولید، MRP، OEE، بهای تمام‌شده، انبار، کیفیت و بیشتر. بدون نصب و بدون قیمت.">
+<meta name="keywords" content="شبیه ساز ERP, محاسبه OEE, محاسبه MRP, بهای تمام شده, آزمایشگاه ERP, تست نرم افزار ERP">
 <meta name="robots" content="index, follow">
 <meta name="author" content="فایان">
 <link rel="canonical" href="https://ashkanghanian-ux.github.io/fayan-erp/trial.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="فایان ERP">
-<meta property="og:title" content="محیط آزمایشی فایان ERP — ماژول‌ها را تست کنید">
-<meta property="og:description" content="همهٔ ماژول‌های ERP صنعتی را آنلاین ببینید و با دادهٔ نمونه تست کنید؛ سامانه با هر شرکت و صنعتی سازگار می‌شود.">
+<meta property="og:title" content="محیط آزمایشی فایان ERP — شبیه‌ساز تعاملی">
+<meta property="og:description" content="دادهٔ خودتان را وارد کنید و نتیجهٔ واقعی محاسبات صنعتی — تحقق، OEE، MRP، بهای تمام‌شده — را ببینید.">
 <meta property="og:url" content="https://ashkanghanian-ux.github.io/fayan-erp/trial.html">
 <meta property="og:image" content="https://ashkanghanian-ux.github.io/fayan-erp/logo.png">
 <meta property="og:locale" content="fa_IR">
@@ -32,7 +32,7 @@
       فایان <small>ERP</small>
     </a>
     <button class="theme-btn" id="themeBtn" title="تغییر تم (روشن/تیره)">🌙</button>
-    <span class="trial-badge"><i class="i"></i> محیط تعاملی — با دادهٔ نمونه</span>
+    <span class="trial-badge"><i class="i"></i> محیط تعاملی — داده‌هایتان را امتحان کنید</span>
     <a href="index.html" class="btn btn-ghost">بازگشت به سایت</a>
     <a href="demo-request.html" class="btn btn-primary">درخواست دموی کامل</a>
   </div>
@@ -44,24 +44,26 @@
 </div>
 
 <div class="trial-note">
-  این محیط برای آشنایی و تست امکانات است؛ اطلاعات داخل آن نمونه‌ای و بدون قیمت است.
-  برای نسخهٔ کامل با دادهٔ واقعی، <a href="demo-request.html">دموی اختصاصی</a> بخواهید یا
-  بخش موردنظرتان را از <a href="proforma.html">پیش‌فاکتور</a> انتخاب کنید.
+  این محیط تعاملی است: عددهای نمونه را با داده‌های خودتان عوض کنید و نتیجه را همان لحظه ببینید — همان فرمول‌هایی
+  که در نرم‌افزار واقعی اجرا می‌شود. برای نسخهٔ کامل با دادهٔ واقعی، <a href="demo-request.html">دموی اختصاصی</a> بخواهید
+  یا بخش موردنظرتان را از <a href="proforma.html">پیش‌فاکتور</a> انتخاب کنید.
 </div>
 
 <script>
-/* ---------- داده‌های ماژول‌ها ---------- */
+/* ============================================================
+   داده‌های ماژول‌ها
+============================================================ */
 var CATS = [
   { id:"ov", n:"۰", t:"داشبورد مدیریتی", badge:"ok", desc:"نمای زندهٔ کل کارخانه در یک نگاه؛ شاخصِ هر واحد با چراغ وضعیت به‌روز می‌شود و از همان نما می‌توانید اقدام اصلاحی شروع کنید. هر رقمی که در خط تولید ثبت شود، در همان ثانیه به نمودار و شاخص مدیریتی تبدیل می‌شود.", feat:[
-    {t:"رصد زندهٔ شاخص‌های واحدها", d:"تحقق هر واحد در هر دوره با چراغ سبز/زرد/قرمز به‌روز می‌شود.", add:false, test:"دکمهٔ «تست» را بزنید؛ تحقق هر واحد تغییر می‌کند و چراغ وضعیتِ همان لحظه رنگ عوض می‌شود."},
-    {t:"از اپراتور تا هیئت‌مدیره", d:"یک ثبت ساده در خط، به شاخص و نمودار مدیریتی تبدیل می‌شود.", add:false, test:"دکمهٔ «تست» را بزنید؛ شبیه‌سازی کنید که اپراتور رقم تولید را ثبت می‌کند و همان لحظه روی نمودار دیده می‌شود."},
+    {t:"رصد زندهٔ شاخص‌های واحدها", d:"تحقق هر واحد در هر دوره با چراغ سبز/زرد/قرمز به‌روز می‌شود.", add:false},
+    {t:"از اپراتور تا هیئت‌مدیره", d:"یک ثبت ساده در خط، به شاخص و نمودار مدیریتی تبدیل می‌شود.", add:false},
     {t:"گزارش‌های شمسی و خروجی اکسل", d:"همهٔ گزارش‌ها با تقویم شمسی و قابل استخراج.", add:false},
     {t:"رصد موبایلی", d:"داشبورد روی گوشی مدیر هم کار می‌کند.", add:false}
   ]},
   { id:"c1", n:"۱", t:"راهبری و مدیریت", badge:"ok", desc:"قلب سامانه: شاخص‌ها، استراتژی، ریسک و اقدامات اصلاحی. این ماژول مطمئن می‌شود هر عددی که دوام می‌آورد، «مدیریتی» می‌شود — از تعریف هدف تا پیگیری ریشهٔ مسئله و بستن آن.", feat:[
-    {t:"داشبورد مدیریتی و شاخص‌ها", d:"شاخص هر واحد در هر دوره تعریف و رصد می‌شود.", add:false, test:"دکمهٔ «تست» را بزنید؛ شاخصی با دوره و هدف دلخواه تعریف و رصد می‌شود."},
+    {t:"داشبورد مدیریتی و شاخص‌ها", d:"شاخص هر واحد در هر دوره تعریف و رصد می‌شود.", add:false},
     {t:"مدیریت استراتژی", d:"اهداف، اقدامات و سند استراتژی به‌صورت یکپارچه.", add:false},
-    {t:"اقدام اصلاحی و پیشگیرانه (CAPA)", d:"از ۵چرا و استخوان ماهی تا تصویب و بستن با مسئول و مهلت.", add:false, test:"دکمهٔ «تست» را بزنید؛ یک اقدام اصلاحی همراه مسئول و مهلت ثبت و پیگیری می‌شود."},
+    {t:"اقدام اصلاحی و پیشگیرانه (CAPA)", d:"از ۵چرا و استخوان ماهی تا تصویب و بستن با مسئول و مهلت.", add:false},
     {t:"مدیریت ریسک و طرح اضطراری", d:"ریسک‌ها و برنامه‌های کاهش ثبت و پایش می‌شوند.", add:false},
     {t:"کارتابل و گردش کار", d:"دریافت و ارسال درخواست‌ها با کارتابل مشخص.", add:true},
     {t:"مدیریت بودجه و برنامه", d:"بودجهٔ سالانه و پایش مصارف.", add:true}
@@ -75,17 +77,17 @@ var CATS = [
     {t:"فاکتور رسمی و سامانهٔ مؤدیان", d:"اتصال به‌صورت سفارشی.", add:true}
   ]},
   { id:"c3", n:"۳", t:"تولید و کارخانه", badge:"ok", desc:"از برنامهٔ تولید و تأمین مواد تا ثبت لحظه‌ای اپراتورهای خط. با BOM، MRP و کانبان هم تأمین مواد دقیق می‌شود و هم مصرف واقعی با فرمول مقایسه می‌گردد؛ ضایعات و انحراف بلافاصله رصد می‌شوند.", feat:[
-    {t:"کنترل تولید روزانه", d:"ثبت مقدار تولید هر خط در هر شیفت.", add:false, test:"دکمهٔ «تست» را بزنید؛ ثبت تولیدِ یک خط در یک شیفت شبیه‌سازی می‌شود."},
+    {t:"کنترل تولید روزانه", d:"ثبت مقدار تولید هر خط در هر شیفت.", add:false},
     {t:"MRP، کانبان و اندازهٔ بهر", d:"تأمین مواد و جمع‌بندی نیاز هر محصول.", add:false},
     {t:"فرمول ساخت (BOM) و درختوارهٔ مواد", d:"یک نسخهٔ مرجع برای انبار، تولید و MRP.", add:false},
-    {t:"انحراف از مصرف و ضایعات", d:"مقایسهٔ مصرف واقعی با فرمول و ثبت ضایعات.", add:false, test:"دکمهٔ «تست» را بزنید؛ مصرف واقعی با فرمول مقایسه و انحراف نشان داده می‌شود."},
+    {t:"انحراف از مصرف و ضایعات", d:"مقایسهٔ مصرف واقعی با فرمول و ثبت ضایعات.", add:false},
     {t:"برنامه‌ریزی تولید و ظرفیت (MPS)", d:"برنامهٔ ماشین‌ها و خطوط.", add:true},
     {t:"کارت عملیات و تایم‌شیت خط", d:"عملیات هر قطعه و زمان استاندارد.", add:true},
     {t:"برون‌سپاری و پیمانکاران تولید", d:"ارسال کار به پیمانکاران.", add:true}
   ]},
   { id:"c4", n:"۴", t:"کیفیت", badge:"ok", desc:"سوابق کیفی IATF و ابزار حل مسئله در یک سامانه؛ از سوابق کنترل قطعات تا تحلیل ریشه‌ای ۵چرا و استخوان ماهی و تیم‌های بهبود. هر عدم انطباق مسیرش را تا ریشه‌یابی و بستن طی کرده و ردیابی می‌شود.", feat:[
     {t:"سوابق کیفی و کنترل کیفیت IATF", d:"آرشیو سوابق و کنترل مستند.", add:false},
-    {t:"تحلیل ریشه‌ای ۵چرا / استخوان ماهی", d:"ابزار تحلیل مشکل تا ریشه.", add:false, test:"دکمهٔ «تست» را بزنید؛ یک عدم انطباق باز و ۵ چرا قدم‌به‌قدم پر می‌شود."},
+    {t:"تحلیل ریشه‌ای ۵چرا / استخوان ماهی", d:"ابزار تحلیل مشکل تا ریشه.", add:false},
     {t:"PCAT و تیم‌های بهبود", d:"تشکیل، اقدام و جمع‌بندی تیم‌ها.", add:false},
     {t:"SPC و نمونه‌برداری آماری", d:"کنترل آماری فرایند.", add:true},
     {t:"عدم انطباق و رسید قطعات", d:"مدیریت NC و مرجوعی.", add:true},
@@ -94,12 +96,12 @@ var CATS = [
   { id:"c5", n:"۵", t:"نگهداری و تجهیزات", badge:"ok", desc:"شناسنامهٔ تجهیزات و قالب‌ها، تعمیرات پیشگیرانه و اصلاحی، کالیبراسیون و شاخص OEE. توقف هر خط ثبت می‌شود و اثرش روی در دسترس‌پذیری، کارایی و کیفیت خودکار محاسبه می‌شود.", feat:[
     {t:"شناسنامهٔ تجهیزات و قالب‌ها", d:"تاریخچهٔ کامل هر دستگاه.", add:false},
     {t:"تعمیرات پیشگیرانه (PM) و اصلاحی (EM)", d:"برنامهٔ PM خودکار با یادآوری.", add:false},
-    {t:"شاخص OEE و ثبت توقفات", d:"محاسبهٔ دسترس‌پذیری، کارایی و کیفیت.", add:false, test:"دکمهٔ «تست» را بزنید؛ یک توقف ثبت می‌شود و OEE همان لحظه محاسبه می‌گردد."},
+    {t:"شاخص OEE و ثبت توقفات", d:"محاسبهٔ دسترس‌پذیری، کارایی و کیفیت.", add:false},
     {t:"کالیبراسیون ابزار دقیق", d:"برنامه و سوابق کالیبراسیون.", add:true},
     {t:"تحلیل خرابی (RCFA / MTBF)", d:"تحلیل ریشهٔ خرابی و قابلیت اطمینان.", add:true}
   ]},
   { id:"c6", n:"۶", t:"انبار و زنجیرهٔ تأمین", badge:"ok", desc:"گردش کالا، موجودی به‌روز و محدودهٔ مصرف مواد. زیرا تولید به انبار وصل است، هر حواله‌ای موجودی را کم می‌کند و هزینهٔ مواد هر محصول از روی BOM محاسبه می‌شود؛ انبارگردانی، بارکد و نقطهٔ سفارش هم پشتیبانی می‌شود.", feat:[
-    {t:"انبار و گردش کالا", d:"رسید، حواله و موجودی به‌روز.", add:false, test:"دکمهٔ «تست» را بزنید؛ یک حواله ثبت و موجودی همان لحظه به‌روز می‌شود."},
+    {t:"انبار و گردش کالا", d:"رسید، حواله و موجودی به‌روز.", add:false},
     {t:"محدودهٔ مصرف مواد و BOM", d:"هزینهٔ مواد هر محصول محاسبه می‌شود.", add:false},
     {t:"انبارگردانی و کارت موجودی", d:"شمارش فیزیکی و اصلاح موجودی.", add:true},
     {t:"نقطهٔ سفارش و قیمت‌گذاری", d:"هشدار موجودی پایین.", add:true},
@@ -107,21 +109,21 @@ var CATS = [
     {t:"مدیریت اموال", d:"اموال و دارایی‌های فیزیکی.", add:true}
   ]},
   { id:"c7", n:"۷", t:"خرید و تدارکات", badge:"ok", desc:"از درخواست خرید و استعلام تا سفارش، رسید و ارزیابی تأمین‌کننده. گردش تأمین برای هر قطعه قابل پیگیری است و تأمین‌کنندگان بر اساس شاخص‌هایی مانند تحویل به‌موقع امتیاز می‌گیرند.", feat:[
-    {t:"تأمین‌کنندگان و ارزیابی پیمانکار", d:"پروفایل و امتیازدهی به تأمین‌کنندگان.", add:false, test:"دکمهٔ «تست» را بزنید؛ به یک تأمین‌کننده امتیاز تحویل به‌موقع داده و رتبه‌اش را ببینید."},
+    {t:"تأمین‌کنندگان و ارزیابی پیمانکار", d:"پروفایل و امتیازدهی به تأمین‌کنندگان.", add:false},
     {t:"درخواست خرید و استعلام بها", d:"گردش کامل تأمین.", add:true},
     {t:"سفارش خرید و رسید کالا", d:"سفارش تا رسید در یک مسیر.", add:true},
     {t:"قراردادها و تضامین", d:"پیگیری قراردادها.", add:true}
   ]},
   { id:"c8", n:"۸", t:"فروش، مشتری و CRM", badge:"ok", desc:"مشتریان و سفارشات با تاریخچهٔ کامل، پایش تعهدات تحویل و چرخهٔ حرفه‌ای فروش. می‌بینید به کدام مشتری به‌موقع تحویل داده‌اید و حاشیهٔ سود هر کالا و مشتری چقدر است.", feat:[
     {t:"مشتریان و سفارشات فروش", d:"تاریخچهٔ کامل هر مشتری.", add:false},
-    {t:"گزارش تحویل و تعهدات", d:"پایش به‌موقع عمل به سفارش‌ها.", add:false, test:"دکمهٔ «تست» را بزنید؛ یک سفارش ثبت و وضعیت تحویل آن دنبال می‌شود."},
+    {t:"گزارش تحویل و تعهدات", d:"پایش به‌موقع عمل به سفارش‌ها.", add:false},
     {t:"پیش‌فاکتور / فاکتور / مرجوعی", d:"چرخهٔ حرفه‌ای فروش.", add:true},
     {t:"پخش مویرگی و سفارش‌گیری موبایل", d:"فروش دوره‌ای با موبایل.", add:true},
     {t:"سود و زیان فروش", d:"حاشیهٔ هر کالا و مشتری.", add:true}
   ]},
   { id:"c9", n:"۹", t:"منابع انسانی و آموزش", badge:"ok", desc:"پروندهٔ پرسنل، ماتریس مهارت و صلاحیت، برنامهٔ آموزشی مبتنی بر نیاز و ارزیابی ۳۶۰ درجه. روشن است کدام اپراتور برای کدام پست واجد صلاحیت است.", feat:[
     {t:"بانک پرسنل و کارگزینی", d:"پروندهٔ پرسنل و سوابق.", add:false},
-    {t:"ماتریس مهارت و صلاحیت", d:"صلاحیت اپراتور برای هر پست.", add:false, test:"دکمهٔ «تست» را بزنید؛ صلاحیت یک اپراتور برای پست موردنظر جستجو می‌شود."},
+    {t:"ماتریس مهارت و صلاحیت", d:"صلاحیت اپراتور برای هر پست.", add:false},
     {t:"نیازهای آموزشی و آموزش موردی", d:"برنامهٔ آموزش بر پایهٔ نیاز.", add:false},
     {t:"ارزیابی عملکرد ۳۶۰ درجه", d:"ارزیابی چندمنظوره.", add:false},
     {t:"حضور و غیاب و تایم‌شیت", d:"کنترل ساعت ورود و خروج.", add:true},
@@ -129,7 +131,7 @@ var CATS = [
   ]},
   { id:"c10", n:"۱۰", t:"مستندات و اتوماسیون", badge:"ok", desc:"مدارک و نسخه‌بندی، فرم‌ساز، بایگانی و طراحی نما. این همان جایی است که سامانه خودش را با شرکت شما تطبیق می‌دهد: فرم دلخواه‌تان بدون برنامه‌نویسی ساخته می‌شود، نما برای هر نقش شخصی‌سازی می‌شود و همهٔ تغییرات لاگ می‌شود.", feat:[
     {t:"مدیریت مدارک و نسخه‌بندی", d:"آخرین نسخهٔ هر سند همیشه در دسترس.", add:false},
-    {t:"فرم‌ساز و طراحی فرم چاپی", d:"فرم دلخواه شما بدون برنامه‌نویسی ساخته می‌شود.", add:false, test:"دکمهٔ «تست» را بزنید؛ بدون کدنویسی یک فیلد دلخواه به فرم اضافه می‌شود."},
+    {t:"فرم‌ساز و طراحی فرم چاپی", d:"فرم دلخواه شما بدون برنامه‌نویسی ساخته می‌شود.", add:false},
     {t:"بایگانی سوابق و لاگ تغییرات", d:"همهٔ تغییرات قابل پیگیری است.", add:false},
     {t:"طراحی نما و داشبورد اختصاصی", d:"نمای اختصاصی برای هر نقش.", add:false}
   ]},
@@ -137,14 +139,14 @@ var CATS = [
 ];
 
 var OFFICE_CARDS = [
-  {t:"نامه‌های ورودی/ارسالی و پیش‌نویس", d:"شماره‌اندیکاتور خودکار، اولویت، محرمانگی و گردش کامل نامه.", test:"نامه‌ای باز کنید و مسیر گردش (دریافت/ارسال/پیگیری) را ببینید."},
-  {t:"نامهٔ جدید با چاپ رسمی", d:"سربرگ، امضای دیجیتال و پیوست؛ خروجی چاپ‌پذیر استاندارد.", test:"یک نامهٔ جدید با شماره‌اندیکاتور خودکار ایجاد کنید."},
-  {t:"درخواست مرخصی و ماموریت", d:"ثبت، تأیید سلسله‌مراتب مدیریت و تاریخچهٔ کامل.", test:"یک درخواست مرخصی ثبت و مسیر تأیید را دنبال کنید."},
-  {t:"درخواست خروج (ترک محل)", d:"تأیید سرپرست و مدیر کارخانه و اجازهٔ خروج از گیت.", test:"درخواست خروج ثبت و با نقش نگهبانی آن را تأیید کنید."},
-  {t:"امضای آنلاین", d:"طراحی و ثبت امضا برای تصویب نامه‌ها.", test:"یک امضا طراحی و روی نامه ثبت کنید."},
-  {t:"پیام‌ها و اعلان‌ها", d:"ارسال داخلی و پیگیری خوانده/نخوانده.", test:"پیامی داخلی بفرستید و وضعیت تحویل را ببینید."},
-  {t:"جستجوی سراسری", d:"جستجو در نامه‌ها، کاربران و شماره‌اندیکاتورها.", test:"در همهٔ نامه‌ها و کاربران سرچ کنید."},
-  {t:"اسناد خارجی و پنل مدیریت", d:"ورود اسناد خارجی و مدیریت کاربران، واحدها و دسترسی‌ها.", test:"کاربر/واحد جدیدی در پنل مدیریت اضافه کنید."}
+  {t:"نامه‌های ورودی/ارسالی و پیش‌نویس", d:"شماره‌اندیکاتور خودکار، اولویت، محرمانگی و گردش کامل نامه."},
+  {t:"نامهٔ جدید با چاپ رسمی", d:"سربرگ، امضای دیجیتال و پیوست؛ خروجی چاپ‌پذیر استاندارد."},
+  {t:"درخواست مرخصی و ماموریت", d:"ثبت، تأیید سلسله‌مراتب مدیریت و تاریخچهٔ کامل."},
+  {t:"درخواست خروج (ترک محل)", d:"تأیید سرپرست و مدیر کارخانه و اجازهٔ خروج از گیت."},
+  {t:"امضای آنلاین", d:"طراحی و ثبت امضا برای تصویب نامه‌ها."},
+  {t:"پیام‌ها و اعلان‌ها", d:"ارسال داخلی و پیگیری خوانده/نخوانده."},
+  {t:"جستجوی سراسری", d:"جستجو در نامه‌ها، کاربران و شماره‌اندیکاتورها."},
+  {t:"اسناد خارجی و پنل مدیریت", d:"ورود اسناد خارجی و مدیریت کاربران، واحدها و دسترسی‌ها."}
 ];
 
 var OFFICE_BODY =
@@ -155,10 +157,10 @@ var OFFICE_BODY =
   +     '<a class="btn btn-primary btn-sm" id="offOpen" href="#" target="_blank" rel="noopener">باز کردن در تب جدید</a></div>'
   +     '<iframe class="off-iframe" id="offFrame" src="" title="اتوماسیون اداری فایان"></iframe>'
   +   '</div>'
-  +   '<div class="off-cred">نام کاربری و رمز نمونه: <code>ADMIN001 / admin123</code> (مدیر سیستم) و <code>SEC001 / sec123</code> (نگهبانی). ده‌ها نامه، مرخصی و خروجِ نمونه با دادهٔ نمایشی آماده‌اند — همین‌جا تست کنید.</div>'
+  +   '<div class="off-cred">این همان برنامهٔ اداری واقعی است: نام کاربری <code>ADMIN001 / admin123</code> (مدیر سیستم) یا <code>SEC001 / sec123</code> (نگهبانی). وارد شوید و خودتان نامه، مرخصی و خروج ثبت کنید.</div>'
   + '</div>'
   + '<div id="offOffline" class="du-card" style="display:none">'
-  +   '<strong>سرور دموی اداری روشن نیست</strong>'
+  +   '<strong>سرور دموی اداری در این شبکه روشن نیست</strong>'
   +   '<p>برای دیدنش، اسکریپت <code>office\\run_office.bat</code> را از پوشهٔ سامانه اجرا کنید تا روی پورت 5401 بالا بیاید؛ یا دموی حضوری درخواست کنید.</p>'
   +   '<div class="price-btn-row"><a class="btn btn-primary" href="demo-request.html">درخواست دمو</a></div>'
   + '</div>'
@@ -167,18 +169,253 @@ var OFFICE_BODY =
   +   '<p>برنامهٔ اداری با ورود حقیقی (نامه، مرخصی، خروج، امضا و پنل مدیریت) در نسخهٔ حضوری یا با درخواست، نمایش داده می‌شود.</p>'
   +   '<div class="price-btn-row"><a class="btn btn-primary" href="demo-request.html">درخواست دموی حضوری</a><a class="btn btn-ghost" href="proforma.html">پیش‌فاکتور</a></div>'
   + '</div>'
-  + '<div class="off-label">امکانات برنامهٔ اداری — روی «تست» بزنید تا شبیه‌سازی اجرا شود</div>'
-  + '<div class="t-grid">'
-  +   OFFICE_CARDS.map(function(f){ return offCard(f); }).join("")
-  + '</div>'
+  + '<div class="off-label">امکانات برنامهٔ اداری</div>'
+  + '<div class="t-grid">' + OFFICE_CARDS.map(function(f){ return '<div class="t-card"><span class="tag go">عملیاتی</span><h3>' + f.t + '</h3><p>' + f.d + '</p></div>'; }).join("") + '</div>'
   + '<div class="t-tip"><b>این برنامه واقعی است، نه شبیه‌سازی؛</b> خودتان با حساب نمونه واردش شوید و یک نامه ثبت یا درخواست مرخصی بدهید. برای استقرار در سازمان‌تان <a href="demo-request.html" style="color:#4f46e5;font-weight:800">دموی اختصاصی</a> یا <a href="proforma.html" style="color:#4f46e5;font-weight:800">پیش‌فاکتور</a> بخواهید.</div>';
 
-function offCard(f){
-  return '<div class="t-card"><span class="tag go">عملیاتی</span><h3>' + f.t + '</h3><p>' + f.d + '</p>'
-  + '<button class="test-btn" onclick="runDemo(this)" data-msg="' + f.test + '">تست</button></div>';
+/* ============================================================
+   شبیه‌ساز تعاملی — کاربر داده می‌دهد، سامانه محاسبه واقعی می‌کند
+============================================================ */
+function fmt(n){
+  n = Math.round(n * 100) / 100;
+  return n.toLocaleString('fa-IR', { maximumFractionDigits: 2 });
+}
+function gv(id){ return parseFloat(document.getElementById(id).value) || 0; }
+function oo(id, html){ document.getElementById(id).innerHTML = html; }
+
+var TESTS = {
+ ov:{
+   title:"تحقق هدف و چراغ وضعیت (داشبورد)",
+   fields:[["goal","هدف روز (قطعه)","500"],["real","تولید واقعی (قطعه)","458"]],
+   calc:function(){
+     var g = gv("t_ov_goal"), r = gv("t_ov_real");
+     var p = g > 0 ? (r / g * 100) : 0;
+     var cls = p >= 90 ? "ok" : (p >= 70 ? "warn" : "bad");
+     var label = p >= 90 ? "سبز — در مسیر هدف" : (p >= 70 ? "زرد — نیاز به توجه" : "قرمز — انحراف جدی");
+     oo("t_ov_out", "تحقق امروز از هدف: <b>" + fmt(p) + "٪</b> "
+       + "(<b>" + fmt(r) + "</b> از <b>" + fmt(g) + "</b> قطعه). وضعیت شاخص در داشبورد: "
+       + "<span class='tw-pill tw-" + cls + "'>" + label + "</span>"
+       + "<br><small style='color:var(--t-mut)'>در نرم‌افزار، همین شاخص با همان رنگ روی داشبورد هر واحد لمس می‌شود؛ زیر آستانه باشد، سامانه پیشنهاد اقدام اصلاحی می‌دهد.</small>");
+   }
+ },
+ c1:{
+   title:"ارزیابی ریسک (احتمال × شدت)",
+   fields:[["pr","احتمال (۱ تا ۵)","3"],["se","شدت (۱ تا ۵)","4"]],
+   calc:function(){
+     var p = Math.min(5, Math.max(1, gv("t_c1_pr")));
+     var s = Math.min(5, Math.max(1, gv("t_c1_se")));
+     var score = p * s;
+     var cls = score <= 6 ? "ok" : (score <= 14 ? "warn" : "bad");
+     var label = score <= 6 ? "کم — پیگیری دوره‌ای" : (score <= 14 ? "متوسط — اقدام کاهشی با مسئول و مهلت" : "زیاد — اقدام اصلاحی فوری + طرح اضطراری");
+     oo("t_c1_out", "امتیاز ریسک: <b>" + fmt(score) + "</b> از ۲۵ → "
+       + "<span class='tw-pill tw-" + cls + "'>" + label + "</span>"
+       + "<br><small style='color:var(--t-mut)'>در سامانه، ریسک بالای آستانه به‌صورت خودکار گردشِ کارِ اقدام اصلاحی (CAPA) با مسئول و مهلت می‌سازد.</small>");
+   }
+ },
+ c2:{
+   title:"بهای تمام‌شدهٔ هر قطعه (مالی + تولید)",
+   fields:[["mp","قیمت ماده (تومان بر کیلو)","1200000"],["wg","وزن هر قطعه (گرم)","340"],["wr","دستمزد (تومان بر ساعت)","450000"],["cy","زمان چرخه (ثانیه)","90"]],
+   calc:function(){
+     var mp = gv("t_c2_mp"), wg = gv("t_c2_wg"), wr = gv("t_c2_wr"), cy = gv("t_c2_cy");
+     var mat = mp * wg / 1000;
+     var overhead = mat * 0.12;
+     var labor = wr * cy / 3600;
+     var total = mat + overhead + labor;
+     oo("t_c2_out", "بهای تمام‌شدهٔ هر قطعه ≈ <b>" + fmt(total) + "</b> تومان"
+       + "<br>مواد: " + fmt(mat) + " • سربار ۱۲٪: " + fmt(overhead) + " • دستمزد: " + fmt(labor)
+       + "<br><small style='color:var(--t-mut)'>در فایان ERP، مواد از BOM و دستمزد از کارت عملیات می‌آید؛ این عدد به‌صورت خودکار به خروجی تولید و سود فروش وصل است.</small>");
+   }
+ },
+ c3:{
+   title:"برنامه‌ریزی نیاز مواد (MRP)",
+   fields:[["st","موجودی انبار ماده","3000"],["cu","مصرف از BOM به ازای هر قطعه","4"],["pl","برنامهٔ تولید هفته (قطعه)","900"]],
+   calc:function(){
+     var st = gv("t_c3_st"), cu = gv("t_c3_cu"), pl = gv("t_c3_pl");
+     var need = pl * cu;
+     var net = need - st;
+     if(net <= 0){
+       oo("t_c3_out", "نیاز هفته: <b>" + fmt(need) + "</b> واحد ماده. موجودی کفایت می‌کند؛ <b>" + fmt(Math.abs(net)) + "</b> واحد مازاد. "
+         + "<span class='tw-pill tw-ok'>بدون سفارش خرید</span>");
+     } else {
+       oo("t_c3_out", "نیاز هفته: <b>" + fmt(need) + "</b> واحد ماده. موجودی: " + fmt(st) + ". "
+         + "<span class='tw-pill tw-warn'>نیاز خالص: " + fmt(net) + "</span>"
+         + "<br><small style='color:var(--t-mut)'>MRP در فایان همین نیاز خالص را با نقطهٔ سفارش و تاریخ تحویل به کارتابل تدارکات پیشنهاد می‌دهد.</small>");
+     }
+   }
+ },
+ c4:{
+   title:"نمونه‌برداری پذیرش (کنترل کیفیت)",
+   fields:[["n","تعداد نمونه","40"],["d","تعداد معیوب","3"]],
+   calc:function(){
+     var n = Math.max(1, gv("t_c4_n")), d = gv("t_c4_d");
+     var rate = d / n * 100;
+     var res = rate <= 2 ? "قبول خودکار — با گواهی AQL ✓" : (rate <= 5 ? "قبول مشروط — نمونه‌برداری سخت‌گیرانه‌تر" : "رد لات — برگشت به تولید + ثبت عدم انطباق");
+     var cls = rate <= 2 ? "ok" : (rate <= 5 ? "warn" : "bad");
+     oo("t_c4_out", "درصد معیوب: <b>" + fmt(rate) + "٪</b> → <span class='tw-pill tw-" + cls + "'>" + res + "</span>"
+       + "<br><small style='color:var(--t-mut)'>در سامانه، «رد لات» خودکار تیکت عدم انطباق و تحلیل ریشهٔ ۵چرا/استخوان ماهی می‌سازد.</small>");
+   }
+ },
+ c5:{
+   title:"محاسبهٔ OEE (نگهداری و تجهیزات)",
+   fields:[["av","زمان برنامه‌ریزی‌شده (دقیقه)","480"],["dw","توقف (دقیقه)","60"],["pd","قطعات تولیدشده","950"],["sc","قطعات معیوب","40"],["cy","سیکل استاندارد (ثانیه)","25"]],
+   calc:function(){
+     var av = Math.max(1, gv("t_c5_av")), dw = gv("t_c5_dw"), pd = gv("t_c5_pd"), sc = gv("t_c5_sc"), cy = gv("t_c5_cy");
+     var run = Math.max(0, av - dw);
+     var a = run / av;
+     var ideal = run * 60 / Math.max(1, cy);
+     var perf = ideal > 0 ? pd / ideal : 0;
+     var q = pd > 0 ? (pd - sc) / pd : 0;
+     var oee = a * perf * q * 100;
+     var cls = oee >= 85 ? "ok" : (oee >= 60 ? "warn" : "bad");
+     var label = oee >= 85 ? "عالی" : (oee >= 60 ? "خوب — جا برای بهبود" : "نیاز به اقدام");
+     oo("t_c5_out", "OEE = <b>" + fmt(oee) + "٪</b> → <span class='tw-pill tw-" + cls + "'>" + label + "</span>"
+       + "<br>دسترس‌پذیری: " + fmt(a * 100) + "٪ • کارایی: " + fmt(Math.min(100, perf * 100)) + "٪ • کیفیت: " + fmt(q * 100) + "٪"
+       + "<br><small style='color:var(--t-mut)'>همین سه شاخص با ثبت توقفات و ضایعات در خط، روی پنل تعمیرات فایان به‌روز می‌شود.</small>");
+   }
+ },
+ c6:{
+   title:"صدور حواله و نقطهٔ سفارش (انبار)",
+   fields:[["st","موجودی فعلی","500"],["q","مقدار حواله","380"],["rp","نقطهٔ سفارش","150"]],
+   calc:function(){
+     var st = gv("t_c6_st"), q = gv("t_c6_q"), rp = gv("t_c6_rp");
+     var left = st - q;
+     var out;
+     if(left < 0){
+       out = "<span class='tw-pill tw-bad'>موجودی منفی شد — سامانه صدور حواله را مسدود می‌کند</span>";
+     } else if(left <= rp){
+       out = "<span class='tw-pill tw-warn'>به نقطهٔ سفارش رسید — پیشنهاد رسید/خرید خودکار</span>";
+     } else {
+       out = "<span class='tw-pill tw-ok'>موجودی کفایت می‌کند</span>";
+     }
+     oo("t_c6_out", "باقیمانده بعد از حواله: <b>" + fmt(left) + "</b> واحد → " + out
+       + "<br><small style='color:var(--t-mut)'>در فایان، موجودی از رسید/حواله به‌صورت زنده کاهش می‌یابد و کارت موجودی هر کالا به‌روز است.</small>");
+   }
+ },
+ c7:{
+   title:"مقایسهٔ دو تأمین‌کننده (استعلام بها)",
+   fields:[["pa","قیمت تأمین‌کنندهٔ ۱ (تومان)","2800000"],["qa","کیفیت ۱ (٪)","92"],["pb","قیمت تأمین‌کنندهٔ ۲ (تومان)","3100000"],["qb","کیفیت ۲ (٪)","98"]],
+   calc:function(){
+     var pa = Math.max(1, gv("t_c7_pa")), qa = Math.max(1, gv("t_c7_qa")), pb = Math.max(1, gv("t_c7_pb")), qb = Math.max(1, gv("t_c7_qb"));
+     var ca = pa / (qa / 100), cb = pb / (qb / 100);
+     var best = ca <= cb ? { n: "۱", v: ca } : { n: "۲", v: cb };
+     var diff = Math.abs(ca - cb) / Math.min(ca, cb) * 100;
+     oo("t_c7_out", "هزینهٔ مؤثر (قیمت ÷ کیفیت): تأمین‌کنندهٔ ۱ = <b>" + fmt(ca) + "</b> • تأمین‌کنندهٔ ۲ = <b>" + fmt(cb) + "</b>"
+       + "<br><span class='tw-pill tw-ok'>پیشنهاد: تأمین‌کنندهٔ " + best.n + "</span>" + " — " + fmt(diff) + "٪ ارزان‌تر از رقیب"
+       + "<br><small style='color:var(--t-mut)'>در سامانه، امتیازدهی تأمین‌کننده روی تحویل به‌موقع و کیفیت انجام می‌شود و در هر استعلام، پیشنهاد خودکار می‌دهد.</small>");
+   }
+ },
+ c8:{
+   title:"حاشیهٔ سود فروش (فروش و CRM)",
+   fields:[["sp","قیمت فروش هر قطعه","1500000"],["cp","بهای تمام‌شده","1120000"],["n","تعداد","600"]],
+   calc:function(){
+     var sp = gv("t_c8_sp"), cp = gv("t_c8_cp"), n = gv("t_c8_n");
+     var rev = sp * n, cost = cp * n, prof = rev - cost;
+     var mg = rev > 0 ? prof / rev * 100 : 0;
+     var cls = mg >= 20 ? "ok" : (mg >= 10 ? "warn" : "bad");
+     var label = mg >= 20 ? "حاشیهٔ خوب" : (mg >= 10 ? "متوسط" : "ضعیف — نیاز به بررسی");
+     oo("t_c8_out", "درآمد: <b>" + fmt(rev) + "</b> تومان • بهای تمام‌شده: " + fmt(cost) + " • سود: <b>" + fmt(prof) + "</b>"
+       + "<br>حاشیهٔ سود: <b>" + fmt(mg) + "٪</b> → <span class='tw-pill tw-" + cls + "'>" + label + "</span>"
+       + "<br><small style='color:var(--t-mut)'>در فایان، بهای تمام‌شده به‌صورت خودکار از تولید و انبار می‌آید و سود هر مشتری/کالا قابل رصد است.</small>");
+   }
+ }
+};
+
+TESTS.c9 = {
+  custom: true,
+  title:"ماتریس مهارت و صلاحیت (منابع انسانی)",
+  html:
+    '<div class="tw-rows">'
+    + '<div class="tw-f"><label>حداقل مهارتِ موردنیاز پست (۱ تا ۴)</label><input class="tw-in" type="number" min="1" max="4" id="t_c9_req" value="3"></div>'
+    + '</div>'
+    + '<div class="tw-skills">'
+    +   '<label class="chk-row"><input type="checkbox" id="t_c9_s1" checked> برش</label>'
+    +   '<label class="chk-row"><input type="checkbox" id="t_c9_s2" checked> جوش</label>'
+    +   '<label class="chk-row"><input type="checkbox" id="t_c9_s3" checked> مونتاژ</label>'
+    +   '<label class="chk-row"><input type="checkbox" id="t_c9_s4"> کنترل کیفیت</label>'
+    + '</div>'
+    + '<div class="tw-out" id="t_c9_out">مهارت‌های اپراتور را علامت بزنید و «محاسبهٔ نتیجه» را بزنید.</div>',
+  calc:function(){
+    var req = Math.min(4, Math.max(1, gv("t_c9_req") || 3));
+    var names = ["برش", "جوش", "مونتاژ", "کنترل کیفیت"];
+    var have = [];
+    for(var i=1; i<=4; i++){ if(document.getElementById("t_c9_s"+i).checked) have.push(names[i-1]); }
+    var pct = Math.round(have.length / req * 100);
+    var ok = have.length >= req;
+    var cls = ok ? "ok" : "warn";
+    var txt = ok ? "واجد شرایط برای پست ✓ — برای کار در شیفت مجاز است" : "صلاحیت ناقص — آموزش‌های پیشنهادی ثبت می‌شود";
+    oo("t_c9_out", "مهارت‌های فعلی: <b>" + (have.join("، ") || "—") + "</b><br>تکمیل نیاز پست: <b>" + pct + "٪</b> → "
+      + "<span class='tw-pill tw-" + cls + "'>" + txt + "</span>"
+      + "<br><small style='color:var(--t-mut)'>در فایان، صلاحیت هر اپراتور برای پستش در ماتریس مهارت ثبت است و نبودِ صلاحیت، آموزش می‌سازد.</small>");
+  }
+};
+
+TESTS.c10 = {
+  custom: true,
+  title:"فرم‌ساز بدون برنامه‌نویسی (مستندات و اتوماسیون)",
+  html:
+    '<div class="tw-frow">'
+    + '<input class="tw-in" type="text" id="t_c10_name" placeholder="نام فیلد — مثلاً شمارهٔ کارگر" style="flex:2;min-width:140px">'
+    + '<select class="tw-in" id="t_c10_type" style="flex:1;min-width:110px"><option>متنی</option><option>عددی</option><option>تاریخ</option></select>'
+    + '<button class="btn btn-primary btn-sm" onclick="TESTS.c10.add()">افزودن فیلد</button>'
+    + '</div>'
+    + '<div class="tw-out" id="t_c10_list"><small style="color:var(--t-mut)">فیلدهایی که اضافه کنید اینجا فهرست می‌شود.</small></div>'
+    + '<div class="tw-out" id="t_c10_preview" style="display:none"></div>',
+  fields_:[],
+  add:function(){
+    var name = document.getElementById("t_c10_name").value.trim();
+    var type = document.getElementById("t_c10_type").value;
+    if(!name) return;
+    TESTS.c10.fields_.push({ n: name, t: type });
+    document.getElementById("t_c10_name").value = "";
+    var lis = TESTS.c10.fields_.map(function(f,i){ return (i+1) + ") " + f.n + " (" + f.t + ")"; }).join("<br>");
+    document.getElementById("t_c10_list").innerHTML = "فیلدهای اضافه‌شده:<br>" + lis;
+  },
+  calc:function(){
+    var box = document.getElementById("t_c10_preview");
+    if(!TESTS.c10.fields_.length){ TESTS.c10.add(); }
+    var fields = TESTS.c10.fields_;
+    if(!fields.length){ oo("t_c10_preview", "ابتدا حداقل یک فیلد اضافه کنید."); box.style.display="block"; return; }
+    var html = '<div style="font-weight:800;margin-bottom:10px">پیش‌نمایش فرم ساخته‌شده:</div>';
+    fields.forEach(function(f){
+      var def = f.t === "عددی" ? '<input class="tw-in" type="number" style="width:100%">' : (f.t === "تاریخ" ? '<input class="tw-in" type="text" placeholder="مثلاً ۱۴۰۴/۰۵/۱۲" style="width:100%">' : '<input class="tw-in" type="text" style="width:100%">');
+      html += '<div style="margin-bottom:9px"><label style="font-size:12.5px;font-weight:700;display:block;margin-bottom:4px">' + f.n + '</label>' + def + '</div>';
+    });
+    html += '<div class="tw-ok">فرم ذخیره شد ✓ — همین فرم در نسخهٔ واقعی بدون برنامه‌نویسی ساخته و چاپ می‌شود.</div>';
+    document.getElementById("t_c10_list").innerHTML = "فیلدهای اضافه‌شده:<br>" + TESTS.c10.fields_.map(function(f,i){ return (i+1) + ") " + f.n + " (" + f.t + ")"; }).join("<br>");
+    box.innerHTML = html;
+    box.style.display = "block";
+  }
+};
+
+function buildTestPanel(id){
+  var t = TESTS[id];
+  if(!t) return "";
+  var html = '<div class="tw"><div class="tw-head"><span class="b">🧪</span> ' + t.title + ' — دادهٔ خودتان را وارد کنید</div>';
+  if(t.custom){
+    html += t.html + '<div class="tw-act"><button class="btn btn-primary btn-sm" onclick="TESTS[\'' + id + '\'].calc()">محاسبهٔ نتیجه</button></div>';
+  } else {
+    t.fields.forEach(function(f){
+      html += '<div class="tw-f"><label>' + f[1] + '</label><input class="tw-in" type="number" inputmode="numeric" step="any" id="t_' + id + '_' + f[0] + '" value="' + f[2] + '"></div>';
+    });
+    html += '<div class="tw-act"><button class="btn btn-primary btn-sm" onclick="TESTS[\'' + id + '\'].calc()">محاسبهٔ نتیجه</button>'
+      + ' <button class="btn btn-ghost btn-sm" onclick="tReset(\'' + id + '\')">نمونهٔ پیش‌فرض</button></div>'
+      + '<div class="tw-out" id="t_' + id + '_out">مقادیر را تغییر دهید و «محاسبهٔ نتیجه» را بزنید.</div>';
+  }
+  html += '</div>';
+  return html;
+}
+function tReset(id){
+  var t = TESTS[id];
+  if(!t || t.custom) return;
+  t.fields.forEach(function(f){
+    var el = document.getElementById("t_" + id + "_" + f[0]);
+    if(el) el.value = f[2];
+  });
 }
 
-/* ---------- رندر ---------- */
+/* ============================================================
+   رندر
+============================================================ */
 var ICONS = { ov:"📊", c1:"🧭", c2:"💳", c3:"🏭", c4:"✅", c5:"🔧", c6:"📦", c7:"🛒", c8:"🤝", c9:"👥", c10:"📂", office:"🏢" };
 var side = document.getElementById("trialSide");
 var main = document.getElementById("trialMain");
@@ -193,6 +430,10 @@ function kpis(){ return '<div class="kpi-band">'
  + '<div class="kpi"><b class="dn">۳</b><span>⚠️ اقدام‌های معوق</span></div>'
  + '</div>'; }
 
+function featCard(f, add){
+  return '<div class="t-card"><span class="tag ' + (add?'ad':'go') + '">' + (add?'قابل افزودن':'عملیاتی') + '</span><h3 class="' + (add?'add':'') + '">' + f.t + '</h3><p>' + f.d + '</p></div>';
+}
+
 var H = [];
 CATS.forEach(function(c){
   var head = '<div class="trial-pano' + (c.id===on?' on':'') + '" data-p="' + c.id + '">'
@@ -205,41 +446,20 @@ CATS.forEach(function(c){
     H.push(head + OFFICE_BODY + '</div>');
   } else if(c.id === 'ov'){
     H.push(head + kpis() + '<div class="t-grid">' + c.feat.map(function(f){ return featCard(f, true); }).join("") + '</div>'
+    + buildTestPanel('ov')
     + '<div class="t-tip"><b>چیزی می‌خواهید که در این فهرست نیست؟</b> فایان ERP با فرم‌ساز و ماژول‌های اختصاصی قابل توسعه است — بخش موردنظرتان را در <a href="proforma.html" style="color:#4f46e5;font-weight:800">پیش‌فاکتور</a> یادداشت کنید.</div>'
     + '</div>');
   } else {
     H.push(head
     + '<div class="chk-grid" style="margin-top:12px">' + chips(c.feat) + '</div>'
     + '<div class="t-grid">' + c.feat.map(function(f){ return featCard(f, f.add); }).join("") + '</div>'
+    + buildTestPanel(c.id)
     + '<div class="t-tip"><b>چیزی می‌خواهید که در این فهرست نیست؟</b> فایان ERP با فرم‌ساز و ماژول‌های اختصاصی قابل توسعه است — بخش موردنظرتان را در <a href="proforma.html" style="color:#4f46e5;font-weight:800">پیش‌فاکتور</a> یادداشت کنید.</div>'
     + '</div>');
   }
 });
 
-function featCard(f, add){
-  var testBtn = f.test ? '<button class="test-btn" onclick="runDemo(this)" data-msg="' + f.test + '">تست</button>' : '';
-  return '<div class="t-card"><span class="tag ' + (add?'ad':'go') + '">' + (add?'قابل افزودن':'عملیاتی') + '</span><h3 class="' + (add?'add':'') + '">' + f.t + '</h3><p>' + f.d + '</p>' + testBtn + '</div>';
-}
-
 main.innerHTML = H.join("");
-
-/* ---------- شبیه‌سازی تست هر ماژول ---------- */
-function runDemo(btn){
-  var card = btn.closest(".t-card");
-  var msg = btn.getAttribute("data-msg");
-  btn.disabled = true;
-  btn.textContent = "در حال شبیه‌سازی…";
-  var done = document.createElement("div");
-  done.className = "test-result";
-  done.textContent = "✓ " + msg;
-  card.appendChild(done);
-  setTimeout(function(){
-    btn.disabled = false;
-    btn.textContent = "تست";
-    btn.classList.add("reset");
-    card.querySelectorAll(".test-result").forEach(function(r){ r.remove(); });
-  }, 4500);
-}
 
 var S = ['<div class="t-head">دسته‌بندی ماژول‌ها</div>'];
 CATS.forEach(function(c){
