@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ashkanghanian-ux.github.io/fayan-erp/sitemap.xml
